@@ -1,19 +1,20 @@
-# Learn about building .NET container images:
-# https://github.com/dotnet/dotnet-docker/blob/main/samples/README.md
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /app
-
-# copy csproj and restore as distinct layers
-COPY DockerTestApp/*.csproj .
-RUN dotnet restore --use-current-runtime  
-
-# copy everything else and build app
-COPY . ./
-RUN dotnet publish -c Release -o out
-
-
-# final stage/image
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
-WORKDIR /app
-COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS base  
+WORKDIR /app  
+EXPOSE 80  
+EXPOSE 443  
+  
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build  
+WORKDIR /src  
+COPY . demo-docker-app/  
+RUN dotnet restore "demo-docker-app/DockerTestApp.csproj"  
+COPY . .  
+WORKDIR "/src/DockerTestApp"  
+RUN dotnet build "DockerTestApp.csproj" -c Release -o /app/build  
+  
+FROM build AS publish  
+RUN dotnet publish "DockerTestApp.csproj" -c Release -o /app/publish  
+  
+FROM base AS final  
+WORKDIR /app  
+COPY --from=publish /app/publish .  
+ENTRYPOINT ["dotnet", "DockerTestApp.dll"]
