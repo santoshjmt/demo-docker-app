@@ -1,0 +1,7 @@
+C:\Users\sapaswa\Documents\Projects\Docker\demo-docker-app\DockerTestApp\DockerTestApp\published\DockerTestApp.exe
+C:\Users\sapaswa\Documents\Projects\Docker\demo-docker-app\DockerTestApp\DockerTestApp\published\appsettings.Development.json
+C:\Users\sapaswa\Documents\Projects\Docker\demo-docker-app\DockerTestApp\DockerTestApp\published\appsettings.json
+C:\Users\sapaswa\Documents\Projects\Docker\demo-docker-app\DockerTestApp\DockerTestApp\published\DockerTestApp.dll
+C:\Users\sapaswa\Documents\Projects\Docker\demo-docker-app\DockerTestApp\DockerTestApp\published\DockerTestApp.deps.json
+C:\Users\sapaswa\Documents\Projects\Docker\demo-docker-app\DockerTestApp\DockerTestApp\published\DockerTestApp.runtimeconfig.json
+C:\Users\sapaswa\Documents\Projects\Docker\demo-docker-app\DockerTestApp\DockerTestApp\published\DockerTestApp.pdb
