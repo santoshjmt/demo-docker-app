@@ -9,7 +9,7 @@ RUN dotnet restore --use-current-runtime
 
 # copy everything else and build app
 COPY DockerTestApp/. .
-RUN dotnet publish --use-current-runtime --self-contained false --no-restore -o /app
+RUN dotnet publish -c Release -o out
 
 
 # final stage/image
